@@ -1,0 +1,25 @@
+{
+  "name": "next-back-project",
+  "version": "1.0.0",
+  "description": "project for front in NextJS",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch ./src/index.js"
+  },
+  "keywords": [
+    "ExpressJS",
+    "RestFull",
+    "API",
+    "NodeJS"
+  ],
+  "author": "NicolasCorredor02",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.13.2",
+    "morgan": "^1.10.0"
+  }
+}
