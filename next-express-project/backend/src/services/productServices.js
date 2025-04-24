@@ -15,7 +15,14 @@ class ProductService {
       const codeExists = await this.dao.codeExist({ code: productData.code })
       if (codeExists) throw new CustomError ('Code already exists', 400)
 
-      const response = await this.dao.create(productData)
+      const producFormated = {
+        ...productData,
+        price: parseFloat(productData.price),
+        stock: parseInt(productData.stock),
+        staus: true
+      }
+
+      const response = await this.dao.create(producFormated)
 
       if (!response) throw new CustomError('Error creating product', 500)
 
