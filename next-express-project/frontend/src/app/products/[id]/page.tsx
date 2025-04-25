@@ -10,7 +10,7 @@ export default async function ProductDetail({ params }: {params: {id: string}}) 
   const product = await getProductById(id);
 
   return (
-    <div>
+    <div className="flex justify-center items-center h-screen">
       <Card>
         <CardHeader className="flex justify-between items-center">
           <CardTitle>
@@ -20,17 +20,10 @@ export default async function ProductDetail({ params }: {params: {id: string}}) 
             Back
           </Link>
         </CardHeader>
-        <CardContent>
-          <h2>{product.title}</h2>
-          <p>{product.description}</p>
-          <p>Code: {product.code}</p>
-          <p>Price: {product.price}</p>
-          <p>Stock: {product.stock}</p>
-          <p>Category: {product.category}</p>
-          <p>Thumbnails:</p>
-          <ul className="flex gap-2 flex-wrap">
-            {product.thumbnails.map((thumbnail) => (
-              <li key={thumbnail} className="w-1/4">
+        <CardContent className="grid grid-cols-3 gap-2">
+          <ul className="flex gap-2 flex-wrap col-span-3 border-2 p-2">
+            {product.thumbnails.map((thumbnail, index) => (
+              <li key={index} className="w-1/4">
                 <Image
                   src={thumbnail}
                   alt={product.title}
@@ -40,6 +33,12 @@ export default async function ProductDetail({ params }: {params: {id: string}}) 
               </li>
             ))}
           </ul>
+          <h2 className="col-span-3 text-xl font-bold">{product.title}</h2>
+          <p className="col-span-3">{product.description}</p>
+          <p className={`${buttonVariants({ size: "sm", variant: "outline" })} col-span-1`}>{product.code}</p>
+          <p className={`${buttonVariants({size: "sm", variant:"outline"})} col-span-1`}>Stock: {product.stock}</p>
+          <p className={`${buttonVariants({size: "sm", variant:"outline"})} col-span-1`}>{product.category}</p>
+          <p className={`${buttonVariants({size: "lg"})}`}>${product.price}</p>
         </CardContent>
       </Card>
     </div>

@@ -1,0 +1,1 @@
+export { default } from "../../new/page"; // Se exporta lo que viene por default de la pagina page de new "ProductsNewPage"
