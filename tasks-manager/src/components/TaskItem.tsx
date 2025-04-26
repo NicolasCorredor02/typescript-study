@@ -6,6 +6,8 @@ import { Task } from "@/types/tasks";
 import { Trash } from "lucide-react";
 
 export default function TaskItem({ task, onDelete }: { task: Task; onDelete: (taskId: string) => void }) {
+
+
   return (
     <li className="flex border-2 justify-between">
       <Label className="w-full px-2">{task.description}</Label>
